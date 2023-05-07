@@ -1,27 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
-using dotnet_api.Data;
 using dotnet_api.Models;
-
 namespace dotnet_api.Endpoints;
 
 public static class ChapterEndpoints
 {
-    public static void MapChapterEndpoints(this IEndpointRouteBuilder routes)
+    public static void MapChapterEndpoints (this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/api/Chapter").WithTags(nameof(Chapter));
 
-        group.MapGet("/", async (dotnet_apiContext db) =>
+        group.MapGet("/", async (NauciProgramiranjeDbContext db) =>
         {
-            return await db.Chapter.ToListAsync();
+            return await db.Chapters.ToListAsync();
         })
         .WithName("GetAllChapters")
         .WithOpenApi();
 
-        group.MapGet("/{id}", async Task<Results<Ok<Chapter>, NotFound>> (int id, dotnet_apiContext db) =>
+        group.MapGet("/{id}", async Task<Results<Ok<Chapter>, NotFound>> (int id, NauciProgramiranjeDbContext db) =>
         {
-            return await db.Chapter.AsNoTracking()
+            return await db.Chapters.AsNoTracking()
                 .FirstOrDefaultAsync(model => model.Id == id)
                 is Chapter model
                     ? TypedResults.Ok(model)
@@ -30,9 +28,9 @@ public static class ChapterEndpoints
         .WithName("GetChapterById")
         .WithOpenApi();
 
-        group.MapPut("/{id}", async Task<Results<Ok, NotFound>> (int id, Chapter chapter, dotnet_apiContext db) =>
+        group.MapPut("/{id}", async Task<Results<Ok, NotFound>> (int id, Chapter chapter, NauciProgramiranjeDbContext db) =>
         {
-            var affected = await db.Chapter
+            var affected = await db.Chapters
                 .Where(model => model.Id == id)
                 .ExecuteUpdateAsync(setters => setters
                   .SetProperty(m => m.Id, chapter.Id)
@@ -45,18 +43,18 @@ public static class ChapterEndpoints
         .WithName("UpdateChapter")
         .WithOpenApi();
 
-        group.MapPost("/", async (Chapter chapter, dotnet_apiContext db) =>
+        group.MapPost("/", async (Chapter chapter, NauciProgramiranjeDbContext db) =>
         {
-            db.Chapter.Add(chapter);
+            db.Chapters.Add(chapter);
             await db.SaveChangesAsync();
-            return TypedResults.Created($"/api/Chapter/{chapter.Id}", chapter);
+            return TypedResults.Created($"/api/Chapter/{chapter.Id}",chapter);
         })
         .WithName("CreateChapter")
         .WithOpenApi();
 
-        group.MapDelete("/{id}", async Task<Results<Ok, NotFound>> (int id, dotnet_apiContext db) =>
+        group.MapDelete("/{id}", async Task<Results<Ok, NotFound>> (int id, NauciProgramiranjeDbContext db) =>
         {
-            var affected = await db.Chapter
+            var affected = await db.Chapters
                 .Where(model => model.Id == id)
                 .ExecuteDeleteAsync();
 

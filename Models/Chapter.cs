@@ -1,4 +1,7 @@
-﻿namespace dotnet_api.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace dotnet_api.Models;
 
 public partial class Chapter
 {
@@ -7,4 +10,6 @@ public partial class Chapter
     public string Title { get; set; } = null!;
 
     public string Description { get; set; } = null!;
+
+    public virtual ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
 }

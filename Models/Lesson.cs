@@ -1,4 +1,7 @@
-﻿namespace dotnet_api.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace dotnet_api.Models;
 
 public partial class Lesson
 {
@@ -12,4 +15,7 @@ public partial class Lesson
 
     public string Video { get; set; } = null!;
 
+    public virtual Chapter Chapter { get; set; } = null!;
+
+    public virtual ICollection<Question> Questions { get; set; } = new List<Question>();
 }
