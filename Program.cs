@@ -24,5 +24,6 @@ app.MapChapterEndpoints();
 app.MapLessonEndpoints();
 app.MapQuestionEndpoints();
 app.MapUserProgressEndpoints();
+app.MapUserTransactionEndpoints();
 
 app.Run();
