@@ -23,5 +23,6 @@ app.UseHttpsRedirection();
 app.MapChapterEndpoints();
 app.MapLessonEndpoints();
 app.MapQuestionEndpoints();
+app.MapUserProgressEndpoints();
 
 app.Run();
