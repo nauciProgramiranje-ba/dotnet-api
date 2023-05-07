@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using dotnet_api.Endpoints;
 using dotnet_api.Models;
 
@@ -22,5 +22,6 @@ app.UseHttpsRedirection();
 // Endpoints
 app.MapChapterEndpoints();
 app.MapLessonEndpoints();
+app.MapQuestionEndpoints();
 
 app.Run();
