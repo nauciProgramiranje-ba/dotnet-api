@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace dotnet_api.Models;
+﻿namespace dotnet_api.Models;
 
 public partial class UserProgress
 {
