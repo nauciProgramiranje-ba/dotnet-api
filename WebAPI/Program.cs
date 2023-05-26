@@ -1,9 +1,16 @@
 using Application;
+using Application.Abstractions;
 using Infrastructure;
+using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Presentation;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var cs = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<NauciProgramiranjeDbContext>(opt => opt.UseSqlServer(cs));
+builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

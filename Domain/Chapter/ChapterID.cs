@@ -1,3 +1,3 @@
 ﻿namespace Domain.Chapter;
 
-public record ChapterID(Guid Value);
+public record ChapterId(Guid Value);

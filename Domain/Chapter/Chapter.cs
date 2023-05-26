@@ -2,7 +2,7 @@
 
 public class Chapter
 {
-    public ChapterID Id { get; set; }
+    public ChapterId Id { get; set; }
 
     public string Title { get; set; } = string.Empty;
 

@@ -6,7 +6,7 @@ public class Lesson
 {
     public LessonId Id { get; set; }
 
-    public ChapterID ChapterId { get; set; }
+    public ChapterId ChapterId { get; set; }
 
     public string Title { get; set; }
 
