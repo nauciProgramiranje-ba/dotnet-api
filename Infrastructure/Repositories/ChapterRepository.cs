@@ -43,13 +43,14 @@ public class ChapterRepository : IChapterRepository
         return await _context.Chapter.FirstOrDefaultAsync(c => c.Id == chapterId);
     }
 
-    public async Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description)
+    public async Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description, int chapterNumber)
     {
         var chapter = await _context.Chapter
             .FirstOrDefaultAsync(c => c.Id == chapterId);
 
         chapter.Title = title;
         chapter.Description = description;
+        chapter.ChapterNumber = chapterNumber;
 
         await _context.SaveChangesAsync();
 

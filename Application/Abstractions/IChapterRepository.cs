@@ -10,7 +10,7 @@ public interface IChapterRepository
     
     Task<Chapter> AddChapter(Chapter toCreate);
 
-    Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description);
+    Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description, int chapterNumber);
 
     Task DeleteChapter(ChapterId chapterId);
 }
