@@ -10,7 +10,6 @@ public class NauciProgramiranjeDbContext : DbContext
     public NauciProgramiranjeDbContext(DbContextOptions options)
         : base(options)
     {
-        
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
