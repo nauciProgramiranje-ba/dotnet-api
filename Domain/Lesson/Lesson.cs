@@ -1,4 +1,5 @@
 ﻿using Domain.Chapter;
+using Domain.Lesson;
 
 namespace Domain.Lesson;
 
