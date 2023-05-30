@@ -11,7 +11,7 @@ public interface ILessonRepository
 
     Task<Lesson> AddLesson(Lesson toCreate);
 
-    Task<Lesson> UpdateLesson(LessonId lessonId, ChapterId chapterId, string title, string description, string videoUrl);
+    Task<Lesson> UpdateLesson(LessonId lessonId, ChapterId chapterId, string title, string description, string videoUrl, int lessonNumber);
 
     Task DeleteLesson(LessonId lessonId);
 }

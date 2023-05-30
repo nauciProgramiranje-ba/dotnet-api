@@ -22,7 +22,6 @@ namespace Infrastructure.Configuration
 
             builder.Property(l => l.Title).HasMaxLength(124);
             builder.Property(l => l.Title).HasMaxLength(512);
-            builder.Property(l => l.VideoUrl);
         }
     }
 }

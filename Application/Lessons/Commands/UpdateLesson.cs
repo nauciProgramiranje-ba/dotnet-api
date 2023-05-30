@@ -1,11 +1,12 @@
 ﻿using Domain.Chapter;
 using Domain.Lesson;
+using MediatR;
 
-namespace Domain.Lesson;
+namespace Application.Lessons.Commands;
 
-public class Lesson 
+public class UpdateLesson : IRequest<Lesson>
 {
-    public LessonId Id { get; set; }
+    public LessonId LessonId { get; set; }
 
     public ChapterId ChapterId { get; set; }
 

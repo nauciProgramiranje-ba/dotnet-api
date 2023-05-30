@@ -44,7 +44,7 @@ public class LessonRepository : ILessonRepository
         return await _context.Lesson.FirstOrDefaultAsync(l => l.Id == lessonId);
     }
 
-    public async Task<Lesson> UpdateLesson(LessonId lessonId, ChapterId chapterId, string title, string description, string videoUrl)
+    public async Task<Lesson> UpdateLesson(LessonId lessonId, ChapterId chapterId, string title, string description, string videoUrl, int lessonNumber)
     {
         var lesson = await _context.Lesson
             .FirstOrDefaultAsync(l => l.Id == lessonId);
@@ -53,6 +53,7 @@ public class LessonRepository : ILessonRepository
         lesson.ChapterId = chapterId;
         lesson.Description = description;
         lesson.VideoUrl = new Uri(videoUrl);
+        lesson.LessonNumber = lessonNumber;
 
         await _context.SaveChangesAsync();
 
