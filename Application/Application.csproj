@@ -8,17 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
-    <PackageReference Include="MediatR" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Chapters\CommandHandlers\" />
-    <Folder Include="Chapters\QueryHandlers\" />
-    <Folder Include="Chapters\Queries\" />
   </ItemGroup>
 
 </Project>

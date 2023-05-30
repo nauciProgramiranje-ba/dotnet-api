@@ -18,6 +18,7 @@ public class CreateChapterHandler : IRequestHandler<CreateChapter, Chapter>
     {
         var chapter = new Chapter
         {
+            Id = new ChapterId(Guid.NewGuid()),
             Title = request.Title,
             Description = request.Description
         };

@@ -1,16 +1,12 @@
 using Application;
-using Application.Abstractions;
 using Infrastructure;
-using Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
 using Presentation;
 using Serilog;
+using WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var cs = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<NauciProgramiranjeDbContext>(opt => opt.UseSqlServer(cs));
-builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
+builder.RegisterServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -35,5 +31,6 @@ app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 
-app.Run();
+app.RegisterEndpointDefinitions();
 
+app.Run();

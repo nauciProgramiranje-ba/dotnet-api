@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Chapters.CommandHandlers;
 
-public class DeleteChapterHandler : IRequestHandler<DeleteChapter>
+public class DeleteChapterHandler : IRequestHandler<DeleteChapter, Unit>
 {
     private readonly IChapterRepository _chapterRepository;
 
@@ -13,8 +13,10 @@ public class DeleteChapterHandler : IRequestHandler<DeleteChapter>
         _chapterRepository = chapterRepository;
     }
 
-    public async Task Handle(DeleteChapter request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeleteChapter request, CancellationToken cancellationToken)
     {
         await _chapterRepository.DeleteChapter(request.ChapterId);
+
+        return Unit.Value;
     }
 }
