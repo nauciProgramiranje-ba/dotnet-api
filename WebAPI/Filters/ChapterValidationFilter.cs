@@ -1,5 +1,4 @@
 ﻿using Domain.Chapter;
-using Microsoft.IdentityModel.Tokens;
 
 namespace WebAPI.Filters;
 
@@ -9,8 +8,8 @@ public class ChapterValidationFilter : IEndpointFilter
     {
         var chapter = context.GetArgument<Chapter>(1);
 
-        if (chapter.Title.IsNullOrEmpty()) return await Task.FromResult(Results.BadRequest("Invalid title."));
-        if (chapter.Description.IsNullOrEmpty()) return await Task.FromResult(Results.BadRequest("Invalid description."));
+        if (string.IsNullOrEmpty(chapter.Title)) return await Task.FromResult(Results.BadRequest("Invalid title."));
+        if (string.IsNullOrEmpty(chapter.Description)) return await Task.FromResult(Results.BadRequest("Invalid description."));
 
         return await next(context);
     }

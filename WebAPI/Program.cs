@@ -29,6 +29,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseSerilogRequestLogging();
 
+app.Use(async (ctx, next) =>
+{
+	try
+	{
+		await next();
+	}
+	catch (Exception)
+	{
+		ctx.Response.StatusCode = 500;
+		await ctx.Response.WriteAsync("An error occured.");
+	}
+});
+
 app.UseHttpsRedirection();
 
 app.RegisterEndpointDefinitions();
