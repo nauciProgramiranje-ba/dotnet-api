@@ -30,9 +30,9 @@ public class NauciProgramiranjeDbContext : DbContext
 
     public DbSet<Chapter> Chapter { get; set; }
 
-    public DbSet<Lesson> Lesson { get; set; }
+    // public DbSet<Lesson> Lesson { get; set; }
     
-    public DbSet<Question> Question { get; set; }
+    // public DbSet<Question> Question { get; set; }
     
     // public DbSet<UserProgress> UserProgress { get; set; }
     

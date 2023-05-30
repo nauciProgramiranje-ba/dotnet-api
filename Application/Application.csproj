@@ -15,4 +15,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Chapters\CommandHandlers\" />
+    <Folder Include="Chapters\QueryHandlers\" />
+    <Folder Include="Chapters\Queries\" />
+  </ItemGroup>
+
 </Project>
