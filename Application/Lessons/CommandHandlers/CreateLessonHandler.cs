@@ -19,6 +19,7 @@ public class CreateLessonHandler : IRequestHandler<CreateLesson, Lesson>
         var lesson = new Lesson
         {
             Id = new LessonId(Guid.NewGuid()),
+            ChapterId = request.ChapterId,
             Title = request.Title,
             Description = request.Description,
             VideoUrl = request.VideoUrl,

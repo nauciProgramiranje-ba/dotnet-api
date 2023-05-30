@@ -1,5 +1,7 @@
-﻿using Application.Chapters.Commands;
-using Application.Chapters.Queries;
+﻿using Application.Lessons.Commands;
+using Application.Lessons.Queries;
+using Domain.Lesson;
+using MediatR;
 using WebAPI.Abstractions;
 using WebAPI.Filters;
 
@@ -25,28 +27,43 @@ public class LessonEndpointDefinitions : IEndpointDefinition
         lessons.MapDelete("/{id:guid}", DeleteLesson);
     }
 
-    private async Task<IResult> GetLessonById()
+    private async Task<IResult> GetLessonById(IMediator mediator, Guid id)
     {
-        return TypedResults.Ok();
+        var getLesson = new GetLessonById { LessonId = new LessonId(id) };
+        var lesson = await mediator.Send(getLesson);
+
+        return TypedResults.Ok(lesson);
     }
 
-    private async Task<IResult> GetAllLessons()
+    private async Task<IResult> GetAllLessons(IMediator mediator)
     {
-        return TypedResults.Ok();
+        var getAllLessons = new GetAllLessons();
+        var lessons = await mediator.Send(getAllLessons);
+
+        return TypedResults.Ok(lessons);
     }
 
-    private async Task<IResult> CreateLesson()
+    private async Task<IResult> CreateLesson(IMediator mediator, Lesson lesson)
     {
-        return TypedResults.Ok();
+        var createLesson = new CreateLesson { ChapterId = lesson.ChapterId, Title = lesson.Title, Description = lesson.Description, VideoUrl = lesson.VideoUrl, LessonNumber = lesson.LessonNumber };
+        var createdLesson = await mediator.Send(createLesson);
+
+        return TypedResults.Ok(createdLesson);
     }
 
-    private async Task<IResult> EditLesson()
+    private async Task<IResult> EditLesson(IMediator mediator, Lesson lesson, Guid id)
     {
-        return TypedResults.Ok();
+        var updateLesson = new UpdateLesson { LessonId = new LessonId(id), ChapterId = lesson.ChapterId, Title = lesson.Title, Description = lesson.Description, VideoUrl = lesson.VideoUrl, LessonNumber = lesson.LessonNumber };
+        var updatedLesson = await mediator.Send(updateLesson);
+
+        return Results.Ok(updatedLesson);
     }
 
-    private async Task<IResult> DeleteLesson()
+    private async Task<IResult> DeleteLesson(IMediator mediator, Guid id)
     {
+        var deleteLesson = new DeleteLesson { LessonId = new LessonId(id) };
+        await mediator.Send(deleteLesson);
+
         return TypedResults.NoContent();
     }
 }

@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Lessons\Commands\" />
-    <Folder Include="Lessons\CommandHandlers\" />
-    <Folder Include="Lessons\QueryHandlers\" />
     <Folder Include="Questions\" />
   </ItemGroup>
 

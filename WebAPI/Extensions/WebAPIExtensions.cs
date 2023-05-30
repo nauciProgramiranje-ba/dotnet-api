@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Application.Chapters.Commands;
 using MediatR;
 using WebAPI.Abstractions;
+using Application.Lessons.Commands;
 
 namespace WebAPI.Extensions;
 
@@ -14,9 +15,12 @@ public static class WebAPIExtensions
     {
         var cs = builder.Configuration.GetConnectionString("Default");
         builder.Services.AddDbContext<NauciProgramiranjeDbContext>(opt => opt.UseSqlServer(cs));
+
         builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
+        builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 
         builder.Services.AddMediatR(typeof(CreateChapter));
+        builder.Services.AddMediatR(typeof(CreateLesson));
     }
 
     public static void RegisterEndpointDefinitions(this WebApplication app)
