@@ -16,6 +16,9 @@ public class QuestionRepository : IQuestionRepository
     }
     public async Task<Question> AddQuestion(Question toCreate)
     {
+        toCreate.AddedDate = DateTime.Now;
+        toCreate.LastModified = DateTime.Now;
+
         _context.Question.Add(toCreate);
         await _context.SaveChangesAsync();
 
@@ -53,6 +56,7 @@ public class QuestionRepository : IQuestionRepository
         question.Answer = answer;
         question.IsCodeQuestion = isCodeQuestion;
         question.QuestionNumber = questionNumber;
+        question.LastModified = DateTime.Now;
 
         await _context.SaveChangesAsync();
 

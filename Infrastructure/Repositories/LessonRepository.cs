@@ -16,6 +16,9 @@ public class LessonRepository : ILessonRepository
 
     public async Task<Lesson> AddLesson(Lesson toCreate)
     {
+        toCreate.AddedDate = DateTime.Now;
+        toCreate.LastModified = DateTime.Now;
+
         _context.Lesson.Add(toCreate);
         await _context.SaveChangesAsync();
 
@@ -54,6 +57,7 @@ public class LessonRepository : ILessonRepository
         lesson.Description = description;
         lesson.VideoUrl = videoUrl;
         lesson.LessonNumber = lessonNumber;
+        lesson.LastModified = DateTime.Now;
 
         await _context.SaveChangesAsync();
 
