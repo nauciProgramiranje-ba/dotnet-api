@@ -1,6 +1,7 @@
 ﻿using Domain.Chapter;
 using Domain.Lesson;
 using Domain.Question;
+using Domain.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;

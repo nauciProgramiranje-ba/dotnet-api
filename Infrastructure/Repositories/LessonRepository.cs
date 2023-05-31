@@ -39,6 +39,11 @@ public class LessonRepository : ILessonRepository
         return await _context.Lesson.OrderBy(l => l.LessonNumber).ToListAsync();
     }
 
+    public async Task<ICollection<Lesson>> GetLessonsByChapterId(ChapterId chapterId)
+    {
+        return await _context.Lesson.Where(l => l.ChapterId == chapterId).OrderBy(l => l.LessonNumber).ToListAsync();
+    }
+
     public async Task<Lesson> GetLessonById(LessonId lessonId)
     {
         return await _context.Lesson.FirstOrDefaultAsync(l => l.Id == lessonId);

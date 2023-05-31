@@ -1,5 +1,6 @@
 ﻿using Application.Lessons.Commands;
 using Application.Lessons.Queries;
+using Domain.Chapter;
 using Domain.Lesson;
 using MediatR;
 using WebAPI.Abstractions;
@@ -11,6 +12,8 @@ public class LessonEndpointDefinitions : IEndpointDefinition
 {
     public void RegisterEndpoints(WebApplication app)
     {
+        app.MapGet("api/chapters/{chapterId:guid}/lessons", GetLessonsByChapterId);
+
         var lessons = app.MapGroup("/api/lessons");
 
         lessons.MapGet("/{id:guid}", GetLessonById)
@@ -39,6 +42,14 @@ public class LessonEndpointDefinitions : IEndpointDefinition
     {
         var getAllLessons = new GetAllLessons();
         var lessons = await mediator.Send(getAllLessons);
+
+        return TypedResults.Ok(lessons);
+    }
+
+    private async Task<IResult> GetLessonsByChapterId(IMediator mediator, Guid chapterId)
+    {
+        var getLessonsByChapterId = new GetLessonsByChapterId { ChapterId = new ChapterId(chapterId) };
+        var lessons = await mediator.Send(getLessonsByChapterId);
 
         return TypedResults.Ok(lessons);
     }

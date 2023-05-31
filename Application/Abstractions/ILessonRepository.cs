@@ -7,6 +7,8 @@ public interface ILessonRepository
 {
     Task<ICollection<Lesson>> GetAllLessons();
 
+    Task<ICollection<Lesson>> GetLessonsByChapterId(ChapterId chapterId);
+
     Task<Lesson> GetLessonById(LessonId lessonId);
 
     Task<Lesson> AddLesson(Lesson toCreate);

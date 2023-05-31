@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3AA0C55F-B17A-4AA7-8F5E-B3C7F8AF6DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{3AA0C55F-B17A-4AA7-8F5E-B3C7F8AF6DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{16F9D102-5D1A-45C8-AEC9-BB777CF466ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{16F9D102-5D1A-45C8-AEC9-BB777CF466ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A7A8B260-E175-4DB8-92BF-6130B0BF85B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A7A8B260-E175-4DB8-92BF-6130B0BF85B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{EC4AFC5F-CFFC-4DDE-86A4-6963FCCF701D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{EC4AFC5F-CFFC-4DDE-86A4-6963FCCF701D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B7553F53-8363-4961-A462-ABB6BFFEDBFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B7553F53-8363-4961-A462-ABB6BFFEDBFE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3563598E-DB39-4BE0-8CDA-AC9D86E873D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A3C6628-3CAF-4F53-965C-0F5645A84BC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arhitecture.Tests", "Arhitecture.Tests\Arhitecture.Tests.csproj", "{9EFBB17E-8D1A-4525-BE35-F4A96D078802}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arhitecture.Tests", "Arhitecture.Tests\Arhitecture.Tests.csproj", "{9EFBB17E-8D1A-4525-BE35-F4A96D078802}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
