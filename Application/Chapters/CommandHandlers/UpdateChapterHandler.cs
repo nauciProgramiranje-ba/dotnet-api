@@ -16,7 +16,7 @@ public class UpdateChapterHandler : IRequestHandler<UpdateChapter, Chapter>
 
     public async Task<Chapter> Handle(UpdateChapter request, CancellationToken cancellationToken)
     {
-        var chapter = await _chapterRepository.UpdateChapter(request.ChapterId, request.Title, request.Description, request.ChapterNumber);
+        var chapter = await _chapterRepository.UpdateChapter(request.ChapterId, request.Title, request.Description, request.ChapterNumber, request.DurationInHrs);
         return chapter;
     }
 }

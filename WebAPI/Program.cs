@@ -44,7 +44,7 @@ app.UseSerilogRequestLogging();
 
 app.UseGlobalExceptionHandling();
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseCors(AllowSpecificOrigins);
 app.UseCors(builder =>

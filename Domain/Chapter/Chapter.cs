@@ -11,4 +11,6 @@ public sealed class Chapter : Entity
     public string Description { get; set; } = string.Empty;
 
     public int ChapterNumber { get; set; }
+
+    public int DurationInHrs { get; set; }
 }

@@ -43,7 +43,7 @@ public class ChapterRepository : IChapterRepository
         return await _context.Chapter.FirstOrDefaultAsync(c => c.Id == chapterId);
     }
 
-    public async Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description, int chapterNumber)
+    public async Task<Chapter> UpdateChapter(ChapterId chapterId, string title, string description, int chapterNumber, int durationInHrs)
     {
         var chapter = await _context.Chapter
             .FirstOrDefaultAsync(c => c.Id == chapterId);
@@ -51,6 +51,7 @@ public class ChapterRepository : IChapterRepository
         chapter.Title = title;
         chapter.Description = description;
         chapter.ChapterNumber = chapterNumber;
+        chapter.DurationInHrs = durationInHrs;
         chapter.LastModified = DateTime.Now;
 
         await _context.SaveChangesAsync();

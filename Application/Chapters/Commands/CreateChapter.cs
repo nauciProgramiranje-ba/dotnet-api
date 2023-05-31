@@ -10,4 +10,6 @@ public class CreateChapter : IRequest<Chapter>
     public string? Description { get; set; }
 
     public int ChapterNumber { get; set; }
+
+    public int DurationInHrs { get; set; }
 }

@@ -49,7 +49,8 @@ public class ChapterEndpointDefinition : IEndpointDefinition
         { 
             Title = chapter.Title,
             Description = chapter.Description, 
-            ChapterNumber = chapter.ChapterNumber 
+            ChapterNumber = chapter.ChapterNumber,
+            DurationInHrs = chapter.DurationInHrs,
         };
         var createdChapter = await mediator.Send(createChapter);
 
@@ -63,7 +64,8 @@ public class ChapterEndpointDefinition : IEndpointDefinition
             ChapterId = new ChapterId(id),
             Title = chapter.Title, 
             Description = chapter.Description, 
-            ChapterNumber = chapter.ChapterNumber
+            ChapterNumber = chapter.ChapterNumber,
+            DurationInHrs = chapter.DurationInHrs
         };
         var updatedChapter = await mediator.Send(updateChapter);
 
