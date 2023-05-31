@@ -21,7 +21,9 @@ public class CreateChapterHandler : IRequestHandler<CreateChapter, Chapter>
             Id = new ChapterId(Guid.NewGuid()),
             Title = request.Title,
             Description = request.Description,
-            ChapterNumber = request.ChapterNumber
+            ChapterNumber = request.ChapterNumber,
+            AddedDate = DateTime.Now,
+            LastModified = DateTime.Now,
         };
 
         return await _chapterRepository.AddChapter(chapter);

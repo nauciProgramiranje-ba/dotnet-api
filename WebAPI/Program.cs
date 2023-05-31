@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: AllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000/")
+            policy.WithOrigins("http://localhost:3000/", "https://nauciprogramiranje.vercel.app/")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -42,18 +42,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseSerilogRequestLogging();
 
-//app.Use(async (ctx, next) =>
-//{
-//	try
-//	{
-//		await next();
-//	}
-//	catch (Exception)
-//	{
-//		ctx.Response.StatusCode = 500;
-//		await ctx.Response.WriteAsync("An error occured.");
-//	}
-//});
+app.UseGlobalExceptionHandling();
 
 app.UseHttpsRedirection();
 

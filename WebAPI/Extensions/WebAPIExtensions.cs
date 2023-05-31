@@ -37,4 +37,20 @@ public static class WebAPIExtensions
             endpointDefinition.RegisterEndpoints(app);
         }
     }
+
+    public static void UseGlobalExceptionHandling(this WebApplication app)
+    {
+        app.Use(async (ctx, next) =>
+        {
+            try
+            {
+                await next();
+            }
+            catch (Exception)
+            {
+                ctx.Response.StatusCode = 500;
+                await ctx.Response.WriteAsync("An error occured.");
+            }
+        });
+    }
 }

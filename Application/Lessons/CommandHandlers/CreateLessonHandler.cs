@@ -23,7 +23,9 @@ public class CreateLessonHandler : IRequestHandler<CreateLesson, Lesson>
             Title = request.Title,
             Description = request.Description,
             VideoUrl = request.VideoUrl,
-            LessonNumber = request.LessonNumber
+            LessonNumber = request.LessonNumber,
+            AddedDate = DateTime.Now,
+            LastModified = DateTime.Now,
         };
 
         return await _lessonRepository.AddLesson(lesson);

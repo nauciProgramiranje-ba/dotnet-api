@@ -15,9 +15,6 @@ public class ChapterRepository : IChapterRepository
 
     public async Task<Chapter> AddChapter(Chapter toCreate)
     {
-        toCreate.AddedDate = DateTime.Now;
-        toCreate.LastModified = DateTime.Now;
-
         _context.Chapter.Add(toCreate);
         await _context.SaveChangesAsync();
 

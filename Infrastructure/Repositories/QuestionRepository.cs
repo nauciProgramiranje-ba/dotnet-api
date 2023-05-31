@@ -16,9 +16,6 @@ public class QuestionRepository : IQuestionRepository
     }
     public async Task<Question> AddQuestion(Question toCreate)
     {
-        toCreate.AddedDate = DateTime.Now;
-        toCreate.LastModified = DateTime.Now;
-
         _context.Question.Add(toCreate);
         await _context.SaveChangesAsync();
 

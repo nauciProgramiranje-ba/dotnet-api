@@ -16,9 +16,6 @@ public class LessonRepository : ILessonRepository
 
     public async Task<Lesson> AddLesson(Lesson toCreate)
     {
-        toCreate.AddedDate = DateTime.Now;
-        toCreate.LastModified = DateTime.Now;
-
         _context.Lesson.Add(toCreate);
         await _context.SaveChangesAsync();
 
