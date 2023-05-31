@@ -7,6 +7,8 @@ public interface IQuestionRepository
 {
     Task<ICollection<Question>> GetAllQuestions();
 
+    Task<ICollection<Question>> GetQuestionsByLessonId(LessonId lessonId);
+
     Task<Question> GetQuestionById(QuestionId questionId);
 
     Task<Question> AddQuestion(Question toCreate);
