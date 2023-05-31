@@ -1,8 +1,9 @@
 ﻿using Domain.Lesson;
+using Domain.Primitives;
 
 namespace Domain.Question;
 
-public class Question
+public sealed class Question : Entity
 {
     public QuestionId Id { get; set; }
 
@@ -13,4 +14,6 @@ public class Question
     public string Answer { get; set; } = string.Empty;
 
     public bool IsCodeQuestion { get; set; }
+
+    public int QuestionNumber { get; set; }
 }

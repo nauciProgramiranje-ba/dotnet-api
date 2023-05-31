@@ -1,9 +1,10 @@
-﻿using Domain.Question;
+﻿using Domain.Primitives;
+using Domain.Question;
 using Domain.User;
 
 namespace Domain.UserProgress;
 
-public class UserProgress 
+public sealed class UserProgress : Entity
 {
     public UserProgressId Id { get; set; }
 

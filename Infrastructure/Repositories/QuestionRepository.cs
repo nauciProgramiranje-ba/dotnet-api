@@ -36,7 +36,7 @@ public class QuestionRepository : IQuestionRepository
 
     public async Task<ICollection<Question>> GetAllQuestions()
     {
-        return await _context.Question.ToListAsync();
+        return await _context.Question.OrderBy(q => q.QuestionNumber).ToListAsync();
     }
 
     public async Task<Question> GetQuestionById(QuestionId questionId)
@@ -44,7 +44,7 @@ public class QuestionRepository : IQuestionRepository
         return await _context.Question.FirstOrDefaultAsync(q => q.Id == questionId);
     }
 
-    public async Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion)
+    public async Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber)
     {
         var question = await _context.Question
             .FirstOrDefaultAsync(q => q.Id == questionId);
@@ -52,6 +52,7 @@ public class QuestionRepository : IQuestionRepository
         question.Prompt = prompt;
         question.Answer = answer;
         question.IsCodeQuestion = isCodeQuestion;
+        question.QuestionNumber = questionNumber;
 
         await _context.SaveChangesAsync();
 

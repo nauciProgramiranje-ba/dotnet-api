@@ -1,6 +1,8 @@
-﻿namespace Domain.User;
+﻿using Domain.Primitives;
 
-public class User
+namespace Domain.User;
+
+public sealed class User : Entity
 {
     public UserId Id { get; set; }
 

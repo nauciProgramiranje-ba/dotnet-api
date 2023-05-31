@@ -1,9 +1,9 @@
 ﻿using Domain.Chapter;
-using Domain.Lesson;
+using Domain.Primitives;
 
 namespace Domain.Lesson;
 
-public class Lesson 
+public sealed class Lesson : Entity
 {
     public LessonId Id { get; set; }
 

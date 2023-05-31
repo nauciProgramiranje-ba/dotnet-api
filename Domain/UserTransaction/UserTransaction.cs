@@ -1,8 +1,9 @@
-﻿using Domain.User;
+﻿using Domain.Primitives;
+using Domain.User;
 
 namespace Domain.UserTransaction;
 
-public class UserTransaction 
+public sealed class UserTransaction : Entity
 {
     public UserTransactionId Id { get; set; }
 

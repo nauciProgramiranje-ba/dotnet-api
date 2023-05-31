@@ -1,6 +1,8 @@
-﻿namespace Domain.Chapter;
+﻿using Domain.Primitives;
 
-public class Chapter
+namespace Domain.Chapter;
+
+public sealed class Chapter : Entity
 {
     public ChapterId Id { get; set; }
 

@@ -36,7 +36,7 @@ public class LessonRepository : ILessonRepository
 
     public async Task<ICollection<Lesson>> GetAllLessons()
     {
-        return await _context.Lesson.ToListAsync();
+        return await _context.Lesson.OrderBy(l => l.LessonNumber).ToListAsync();
     }
 
     public async Task<Lesson> GetLessonById(LessonId lessonId)

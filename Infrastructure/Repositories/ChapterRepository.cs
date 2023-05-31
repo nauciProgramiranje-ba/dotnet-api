@@ -35,7 +35,7 @@ public class ChapterRepository : IChapterRepository
 
     public async Task<ICollection<Chapter>> GetAllChapters()
     {
-        return await _context.Chapter.ToListAsync();
+        return await _context.Chapter.OrderBy(c => c.ChapterNumber).ToListAsync();
     }
 
     public async Task<Chapter> GetChapterById(ChapterId chapterId)

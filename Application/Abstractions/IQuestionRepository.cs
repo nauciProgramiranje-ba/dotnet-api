@@ -11,7 +11,7 @@ public interface IQuestionRepository
 
     Task<Question> AddQuestion(Question toCreate);
 
-    Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion);
+    Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber);
 
     Task DeleteQuestion(QuestionId questionId);
 }
