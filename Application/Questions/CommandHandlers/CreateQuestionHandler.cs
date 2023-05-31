@@ -18,6 +18,7 @@ public class CreateQuestionHandler : IRequestHandler<CreateQuestion, Question>
     {
         var question = new Question
         {
+            Id = new QuestionId(Guid.NewGuid()),
             LessonId = request.LessonId,
             Prompt = request.Prompt,
             Answer = request.Answer,

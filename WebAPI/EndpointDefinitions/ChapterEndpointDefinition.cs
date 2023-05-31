@@ -45,7 +45,12 @@ public class ChapterEndpointDefinition : IEndpointDefinition
 
     private async Task<IResult> CreateChapter(IMediator mediator, Chapter chapter)
     {
-        var createChapter = new CreateChapter { Title = chapter.Title, Description = chapter.Description, ChapterNumber = chapter.ChapterNumber };
+        var createChapter = new CreateChapter 
+        { 
+            Title = chapter.Title,
+            Description = chapter.Description, 
+            ChapterNumber = chapter.ChapterNumber 
+        };
         var createdChapter = await mediator.Send(createChapter);
 
         return TypedResults.Ok(createdChapter);
@@ -53,7 +58,13 @@ public class ChapterEndpointDefinition : IEndpointDefinition
 
     private async Task<IResult> EditChapter(IMediator mediator, Chapter chapter, Guid id)
     {
-        var updateChapter = new UpdateChapter { ChapterId = new ChapterId(id), Title = chapter.Title, Description = chapter.Description, ChapterNumber = chapter.ChapterNumber };
+        var updateChapter = new UpdateChapter 
+        { 
+            ChapterId = new ChapterId(id),
+            Title = chapter.Title, 
+            Description = chapter.Description, 
+            ChapterNumber = chapter.ChapterNumber
+        };
         var updatedChapter = await mediator.Send(updateChapter);
 
         return Results.Ok(updatedChapter);

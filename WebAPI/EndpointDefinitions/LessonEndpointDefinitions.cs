@@ -45,7 +45,14 @@ public class LessonEndpointDefinitions : IEndpointDefinition
 
     private async Task<IResult> CreateLesson(IMediator mediator, Lesson lesson)
     {
-        var createLesson = new CreateLesson { ChapterId = lesson.ChapterId, Title = lesson.Title, Description = lesson.Description, VideoUrl = lesson.VideoUrl, LessonNumber = lesson.LessonNumber };
+        var createLesson = new CreateLesson
+        { 
+            ChapterId = lesson.ChapterId, 
+            Title = lesson.Title, 
+            Description = lesson.Description,
+            VideoUrl = lesson.VideoUrl,
+            LessonNumber = lesson.LessonNumber
+        };
         var createdLesson = await mediator.Send(createLesson);
 
         return TypedResults.Ok(createdLesson);
@@ -53,7 +60,15 @@ public class LessonEndpointDefinitions : IEndpointDefinition
 
     private async Task<IResult> EditLesson(IMediator mediator, Lesson lesson, Guid id)
     {
-        var updateLesson = new UpdateLesson { LessonId = new LessonId(id), ChapterId = lesson.ChapterId, Title = lesson.Title, Description = lesson.Description, VideoUrl = lesson.VideoUrl, LessonNumber = lesson.LessonNumber };
+        var updateLesson = new UpdateLesson 
+        { 
+            LessonId = new LessonId(id),
+            ChapterId = lesson.ChapterId,
+            Title = lesson.Title, 
+            Description = lesson.Description,
+            VideoUrl = lesson.VideoUrl,
+            LessonNumber = lesson.LessonNumber 
+        };
         var updatedLesson = await mediator.Send(updateLesson);
 
         return Results.Ok(updatedLesson);

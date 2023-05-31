@@ -1,11 +1,12 @@
-﻿using Application.Abstractions;
-using Infrastructure.Repositories;
-using Infrastructure;
-using Microsoft.EntityFrameworkCore;
-using Application.Chapters.Commands;
-using MediatR;
+﻿using MediatR;
 using WebAPI.Abstractions;
+using Microsoft.EntityFrameworkCore;
+using Application.Abstractions;
 using Application.Lessons.Commands;
+using Application.Questions.Commands;
+using Application.Chapters.Commands;
+using Infrastructure;
+using Infrastructure.Repositories;
 
 namespace WebAPI.Extensions;
 
@@ -18,9 +19,11 @@ public static class WebAPIExtensions
 
         builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
         builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+        builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 
         builder.Services.AddMediatR(typeof(CreateChapter));
         builder.Services.AddMediatR(typeof(CreateLesson));
+        builder.Services.AddMediatR(typeof(CreateQuestion));
     }
 
     public static void RegisterEndpointDefinitions(this WebApplication app)
