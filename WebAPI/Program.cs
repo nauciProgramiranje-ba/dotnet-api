@@ -6,6 +6,19 @@ using WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var AllowSpecificOrigins = "AllowAccess";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000/")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 builder.RegisterServices();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -43,6 +56,12 @@ app.UseSerilogRequestLogging();
 //});
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowSpecificOrigins);
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+});
 
 app.RegisterEndpointDefinitions();
 
