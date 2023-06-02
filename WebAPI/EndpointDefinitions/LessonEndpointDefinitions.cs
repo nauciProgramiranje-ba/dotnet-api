@@ -12,12 +12,12 @@ public class LessonEndpointDefinitions : IEndpointDefinition
 {
     public void RegisterEndpoints(WebApplication app)
     {
-        app.MapGet("api/chapters/{chapterId:guid}/lessons", GetLessonsByChapterId);
-
         var lessons = app.MapGroup("/api/lessons");
 
         lessons.MapGet("/{id:guid}", GetLessonById)
             .WithName("GetLessonById");
+
+        lessons.MapGet("/chapter={chapterId:guid}", GetLessonsByChapterId);
 
         lessons.MapGet("/", GetAllLessons);
 

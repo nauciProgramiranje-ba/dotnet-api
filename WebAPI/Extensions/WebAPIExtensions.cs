@@ -14,7 +14,7 @@ public static class WebAPIExtensions
 {
     public static void RegisterServices(this WebApplicationBuilder builder)
     {
-        var cs = builder.Configuration.GetConnectionString("Default");
+        var cs = builder.Configuration.GetConnectionString("Azure");
         builder.Services.AddDbContext<NauciProgramiranjeDbContext>(opt => opt.UseSqlServer(cs));
 
         builder.Services.AddScoped<IChapterRepository, ChapterRepository>();

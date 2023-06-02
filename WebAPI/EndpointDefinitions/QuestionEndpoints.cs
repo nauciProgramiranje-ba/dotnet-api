@@ -12,12 +12,12 @@ public class QuestionEndpoints : IEndpointDefinition
 {
     public void RegisterEndpoints(WebApplication app)
     {
-        app.MapGet("api/lesson/{lessonId:guid}/questions", GetQuestionsByLessonId);
-     
         var questions = app.MapGroup("/api/questions");
 
         questions.MapGet("/{id:guid}", GetQuestionById)
             .WithName("GetQueByIstiond");
+
+        questions.MapGet("/lesson={lessonId:guid}", GetQuestionsByLessonId);
 
         questions.MapGet("/", GetAllQuestions);
 
