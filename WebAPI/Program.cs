@@ -42,7 +42,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseSerilogRequestLogging();
 
-app.UseGlobalExceptionHandling();
+// app.UseGlobalExceptionHandling();
 
 // app.UseHttpsRedirection();
 

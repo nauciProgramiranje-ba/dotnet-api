@@ -17,4 +17,6 @@ public class UpdateQuestion : IRequest<Question>
     public bool IsCodeQuestion { get; set; }
 
     public int QuestionNumber { get; set; }
+
+    public string PossibleAnswers { get; set; }
 }

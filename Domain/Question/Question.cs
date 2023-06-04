@@ -16,4 +16,6 @@ public sealed class Question : Entity
     public bool IsCodeQuestion { get; set; }
 
     public int QuestionNumber { get; set; }
+
+    public string PossibleAnswers { get; set; }
 }

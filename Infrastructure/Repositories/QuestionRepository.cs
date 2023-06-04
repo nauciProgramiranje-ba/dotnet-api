@@ -49,7 +49,7 @@ public class QuestionRepository : IQuestionRepository
         return await _context.Question.FirstOrDefaultAsync(q => q.Id == questionId);
     }
 
-    public async Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber)
+    public async Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber, string possibleAnswers)
     {
         var question = await _context.Question
             .FirstOrDefaultAsync(q => q.Id == questionId);
@@ -58,6 +58,7 @@ public class QuestionRepository : IQuestionRepository
         question.Answer = answer;
         question.IsCodeQuestion = isCodeQuestion;
         question.QuestionNumber = questionNumber;
+        question.PossibleAnswers = possibleAnswers;
         question.LastModified = DateTime.Now;
 
         await _context.SaveChangesAsync();

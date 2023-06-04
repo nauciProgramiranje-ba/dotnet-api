@@ -13,7 +13,7 @@ public interface IQuestionRepository
 
     Task<Question> AddQuestion(Question toCreate);
 
-    Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber);
+    Task<Question> UpdateQuestion(QuestionId questionId, LessonId lessonId, string prompt, string answer, bool isCodeQuestion, int questionNumber, string possibleAnswers);
 
     Task DeleteQuestion(QuestionId questionId);
 }

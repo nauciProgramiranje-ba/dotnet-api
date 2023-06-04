@@ -24,6 +24,7 @@ public class CreateQuestionHandler : IRequestHandler<CreateQuestion, Question>
             Answer = request.Answer,
             IsCodeQuestion = request.IsCodeQuestion,
             QuestionNumber = request.QuestionNumber,
+            PossibleAnswers = request.PossibleAnswers,
             AddedDate = DateTime.Now,
             LastModified = DateTime.Now,
         };

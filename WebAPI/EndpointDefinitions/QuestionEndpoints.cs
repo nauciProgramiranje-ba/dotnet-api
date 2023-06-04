@@ -56,12 +56,13 @@ public class QuestionEndpoints : IEndpointDefinition
 
     private async Task<IResult> CreateQuestion(IMediator mediator, Question question)
     {
-        var createQuestion = new CreateQuestion 
-        { 
+        var createQuestion = new CreateQuestion
+        {
             LessonId = question.LessonId,
-            Prompt = question.Prompt, 
-            Answer = question.Answer, 
-            IsCodeQuestion = question.IsCodeQuestion, 
+            Prompt = question.Prompt,
+            Answer = question.Answer,
+            IsCodeQuestion = question.IsCodeQuestion,
+            PossibleAnswers = question.PossibleAnswers,
             QuestionNumber = question.QuestionNumber 
         };
         var createdQuestion = await mediator.Send(createQuestion);
@@ -77,6 +78,7 @@ public class QuestionEndpoints : IEndpointDefinition
             LessonId = question.LessonId,
             Prompt = question.Prompt,
             Answer = question.Answer,
+            PossibleAnswers = question.PossibleAnswers,
             IsCodeQuestion = question.IsCodeQuestion,
             QuestionNumber = question.QuestionNumber
         };
