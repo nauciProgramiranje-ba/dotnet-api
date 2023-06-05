@@ -7,9 +7,9 @@ This is ASP.NET Core Web API project for nauciProgramiranje.ba website. I made t
 
 Technologies, tools, and languages used in this project.
 
-| Languages | Database | Tools | Hosting |
-| --- | --- | --- | --- |
-| ![CSharp](https://a11ybadges.com/badge?logo=csharp) | ![Microsoft SQL Server](https://a11ybadges.com/badge?logo=microsoftsqlserver) | ![Visual Studio](https://a11ybadges.com/badge?logo=visualstudio) | ![Microsoft Azure](https://a11ybadges.com/badge?logo=microsoftazure) |
+| Languages | Frameworks | Database | Tools | Hosting |
+| --- | --- | --- | --- | --- |
+| ![CSharp](https://a11ybadges.com/badge?logo=csharp) | ![.NET](https://a11ybadges.com/badge?logo=dotnet) | ![Microsoft SQL Server](https://a11ybadges.com/badge?logo=microsoftsqlserver) | ![Visual Studio](https://a11ybadges.com/badge?logo=visualstudio) | ![Microsoft Azure](https://a11ybadges.com/badge?logo=microsoftazure) |
 
 
 ## Arhitecture
