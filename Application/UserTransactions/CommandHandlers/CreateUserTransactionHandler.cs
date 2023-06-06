@@ -21,6 +21,8 @@ internal class CreateUserTransactionHandler : IRequestHandler<CreateUserTransact
             Id = new UserTransactionId(Guid.NewGuid()),
             UserId = request.UserId,
             Amount = request.Amount,
+            AddedDate = DateTime.Now,
+            LastModified = DateTime.Now,
         };
 
         return await _userTransactionRepository.AddUserTransaction(transaction);

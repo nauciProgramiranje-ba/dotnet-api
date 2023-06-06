@@ -16,6 +16,6 @@ public class GetAllUserTransactionsHandler : IRequestHandler<GetAllUserTransacti
 
     public async Task<ICollection<UserTransaction>> Handle(GetAllUserTransactions request, CancellationToken cancellationToken)
     {
-        return await _userTransactionRepository.GetAllUserTransactions();
+        return await _userTransactionRepository.GetAllUserTransactions(request.UserId);
     }
 }

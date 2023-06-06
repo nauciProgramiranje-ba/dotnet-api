@@ -7,6 +7,7 @@ using Application.Questions.Commands;
 using Application.Chapters.Commands;
 using Infrastructure;
 using Infrastructure.Repositories;
+using Application.UserTransactions.Commands;
 
 namespace WebAPI.Extensions;
 
@@ -20,10 +21,12 @@ public static class WebAPIExtensions
         builder.Services.AddScoped<IChapterRepository, ChapterRepository>();
         builder.Services.AddScoped<ILessonRepository, LessonRepository>();
         builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+        builder.Services.AddScoped<IUserTransactionRepository, UserTransactionRepository>();
 
         builder.Services.AddMediatR(typeof(CreateChapter));
         builder.Services.AddMediatR(typeof(CreateLesson));
         builder.Services.AddMediatR(typeof(CreateQuestion));
+        builder.Services.AddMediatR(typeof(CreateUserTransaction));
     }
 
     public static void RegisterEndpointDefinitions(this WebApplication app)

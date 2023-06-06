@@ -4,7 +4,7 @@ namespace Application.Abstractions;
 
 public interface IUserTransactionRepository
 {
-    Task<ICollection<UserTransaction>> GetAllUserTransactions();
+    Task<ICollection<UserTransaction>> GetAllUserTransactions(string userId);
 
     Task<UserTransaction> GetUserTransactionById(UserTransactionId chapterId);
 
