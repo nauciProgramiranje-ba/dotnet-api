@@ -13,8 +13,5 @@ internal class ChapterConfiguration : IEntityTypeConfiguration<Chapter>
         builder.Property(c => c.Id)
             .HasConversion(chapterId => chapterId.Value,
             value => new ChapterId(value));
-
-        builder.Property(c => c.Title).HasMaxLength(124);
-        builder.Property(c => c.Title).HasMaxLength(512);
     }
 }

@@ -20,7 +20,8 @@ internal class QuestionConfiguration : IEntityTypeConfiguration<Question>
             .HasForeignKey(q => q.LessonId)
             .IsRequired();
 
-        builder.Property(q => q.Prompt).HasMaxLength(512);
-        builder.Property(q => q.Answer).HasMaxLength(512);
+        builder.Property(q => q.Prompt).HasColumnType("nvarchar(max)");
+        builder.Property(q => q.Answer).HasColumnType("nvarchar(max)");
+        builder.Property(q => q.PossibleAnswers).HasColumnType("nvarchar(max)");
     }
 }

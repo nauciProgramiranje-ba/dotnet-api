@@ -1,7 +1,7 @@
 ﻿using Domain.Chapter;
 using Domain.Lesson;
 using Domain.Question;
-using Domain.User;
+using Domain.UserTransaction;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
@@ -33,5 +33,5 @@ public class NauciProgramiranjeDbContext : DbContext
     
     // public DbSet<UserProgress> UserProgress { get; set; }
     
-    // public DbSet<UserTransaction> UserTransaction { get; set; }
+    public DbSet<UserTransaction> UserTransaction { get; set; }
 }
