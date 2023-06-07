@@ -26,6 +26,12 @@ public class UserTransactionRepository : IUserTransactionRepository
         return await _context.UserTransaction.Where(t => t.UserId == userId).OrderBy(t => t.AddedDate).ToListAsync();
     }
 
+    public async Task<UserTransaction> GetLastUserTransaction(string userId)
+    {
+        var latestDate = _context.UserTransaction.Max(t => t.AddedDate);
+        return await _context.UserTransaction.FirstOrDefaultAsync(t => t.AddedDate == latestDate);
+    }
+
     public async Task<UserTransaction> GetUserTransactionById(UserTransactionId chapterId)
     {
         return await _context.UserTransaction.FirstOrDefaultAsync(t => t.Id == chapterId);

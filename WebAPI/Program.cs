@@ -13,7 +13,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: AllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000/", "https://nauciprogramiranje.vercel.app/")
+            policy
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -49,7 +50,10 @@ app.UseSerilogRequestLogging();
 app.UseCors(AllowSpecificOrigins);
 app.UseCors(builder =>
 {
-    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    builder
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .SetIsOriginAllowed(origin => true);
 });
 
 app.RegisterEndpointDefinitions();

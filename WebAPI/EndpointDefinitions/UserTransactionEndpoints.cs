@@ -18,6 +18,8 @@ public class UserTransactionEndpoints : IEndpointDefinition
 
         chapters.MapGet("/user={userId}", GetAllUserTransactions);
 
+        chapters.MapGet("/user={userId}/getLatest", GetLatestUserTransaction);
+
         chapters.MapPost("/", CreateUserTransaction)
             .AddEndpointFilter<UserTransactionValidationFilter>();
     }
@@ -36,6 +38,14 @@ public class UserTransactionEndpoints : IEndpointDefinition
         var transactions = await mediator.Send(getUserTransactions);
 
         return TypedResults.Ok(transactions);
+    }
+
+    private async Task<IResult> GetLatestUserTransaction(IMediator mediator, string userId)
+    {
+        var getUserTransaction = new GetLastTransaction();
+        var transaction = await mediator.Send(getUserTransaction);
+
+        return TypedResults.Ok(transaction);
     }
 
     private async Task<IResult> CreateUserTransaction(IMediator mediator, UserTransaction userTransaction)
